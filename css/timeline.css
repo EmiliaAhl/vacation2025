@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+.timeline {
+  position: relative;
+  padding: 0;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid red;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.left {
+  left: 0;
+}
+
+.left::before {
+  content: "";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+.right {
+  left: 50%;
+}
+
+.right::before {
+  content: "";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+.right::after {
+  left: -16px;
+}
+
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+
+h2 {
+  font-size: 40px;
+  display: flex;
+  font-weight: 100;
+}
+
+.image-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.image {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  object-fit: cover;
+  min-width: 300px;
+  height: 300px;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rbg(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline::after {
+    left: 31px;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .container::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+  .left::after,
+  .right::after {
+    left: 15px;
+  }
+
+  .right {
+    left: 0%;
+  }
+}
