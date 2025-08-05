@@ -5,10 +5,10 @@ content.forEach((activity) => {
   timelineHTML += `<div class="container ${activity.orientation}">
         <div class="content">
           <h2>${activity.title}</h2>
-          <div class="image-container">`;
+          <div class="image-container" id="${activity.id}">`;
 
   activity.images.forEach((image) => {
-    timelineHTML += `<img src="images/${image}.jpg"
+    timelineHTML += `<img src="https://lh3.googleusercontent.com/d/${image}"
     class="image"
     id="${image}"
     onclick=" 
